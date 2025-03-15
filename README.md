@@ -323,7 +323,9 @@ The **observed statistic** of **0.2963** is indicated by the red vertical line o
 
 ## Hypothesis Testing
 
-todo
+Another factor that may influence a recipe's rating is the amount of calories it contains. Typically speaking, foods like sugary desserts and other junk foods are typically well-liked, which may lead to them receiving a higher rating because they are enjoyed more, or, users may rate them lower if they are too sweet or greasy. Additionally, these foods tend to be higher in calories than say some pickles due factors like sugars and fats. As a result, I'm curious as to whether there is a significant relationship between a recipe's calories and its rating.
+
+To explore this, I ran a permutation test with the following null and alternative hypotheses, test statistic, and significance level.
 
 **Null Hypothesis:** The amount of calories have no effect on rating
 
@@ -332,6 +334,8 @@ todo
 **Test Statistic:** The K-S Statistic
 
 **Significance Level:** 0.05
+
+My choices of test, hypotheses, and test statistic were good choices for several reasons. Firstly, I don't have any information on the underlying population, and I want to see if the different caloric distributions of the difference ratings came from the same population. I decided to do two-sided hypotheses due to the fact that if a certain recipe is too low in calories (e.g. salad with no dressing) or too high in calories (e.g. cupcake with too much sugar), either could affect the rating. Finally, the choice of a K-S test statistic worked best for my test because the K-S statistic is designed for continuous distributions like that of calories, and it can be compared across the 5 different classes of ratings.
 
 todo
 
