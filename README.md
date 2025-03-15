@@ -148,7 +148,7 @@ THe cleaned dataframe ended up with 234429 rows and 26 columns. Here are the fir
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When looking at the distribution of ratings in the dataset, there is an obvious exponentially increasing trend of the amount of a certain rating being given to the rating itself. In the bar graph above, rating categories 1 and 2 hardly have any ratings, while 4 and especially 5 have the most ratings.
 
 <iframe
   src="assets/calories_box.html"
@@ -156,7 +156,7 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When looking at this boxplot of the distributions of calories among unique recipes in the dataframe, we can see that recipes tend to have less than roughly 500 calories, with an average of about 300 calories. However, there are many outliers to this trend that are cut out of the graph due to the graph being too small to view had they been included in the image.
 
 ### Bivariate Analysis
 
@@ -166,7 +166,7 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When looking at the boxplots of recipes' calories separated by year, there is an overall trend of recipes uploaded to the website becoming higher in calorie as time goes on. There is little variation and only slight fluctuation from 2008 to 2014-2015, but from then on, the calories have sloly trended upwards.
 
 <iframe
   src="assets/ratings_vs_calories_box.html"
@@ -174,7 +174,8 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When looking at the boxplots of recipes' calories separated by rating, there seems to be an overall slight downwards trend in calories as rating increases in regards to the first quartile, median, and third quartile.
+
 
 <iframe
   src="assets/avg_vs_calories.html"
@@ -182,7 +183,7 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When comparing the amount of calories of a recipe to its average rating (rounded to the nearest integer) in a scatter plot, there is an overall upward trend that directly correlates calories to rating, however, there are many outliers, especially in the average rating 5 category.
 
 <iframe
   src="assets/avg_vs_total_fat_scatter.html"
@@ -190,7 +191,7 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When comparing the total fat (PDV) of a recipe to its average rating (rounded to the nearest integer) in a scatter plot, there is an overall upward trend. Similarly to the previous graph, there are many outliers, especially in the average rating 5 category. Furthermore, the relatinship appears a bit non-linear, however, again, that is influenced by the outliers.
 
 <iframe
   src="assets/avg_vs_sugar_scatter.html"
@@ -198,7 +199,7 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When comparing the sugar (PDV) of a recipe to its average rating (rounded to the nearest integer) in a scatter plot, there is a bit of an overall upward trend. Similarly to the previous graph, there are many outliers, especially in the average rating 5 category. The relatinship appears a more linear than that of the one comparing total fat, however, again, that is influenced by and dependent on the outliers.
 
 <iframe
   src="assets/avg_vs_sodium_scatter.html"
@@ -206,7 +207,7 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When comparing the sodium (PDV) of a recipe to its average rating (rounded to the nearest integer) in a scatter plot, there is an overall upward trend. Similarly to the previous graph, there are a few outliers, most notably in the average rating 3 category. Furthermore, the relatinship appears a bit non-linear, however, again, that is influenced by the outliers.
 
 <iframe
   src="assets/avg_vs_protein_scatter.html"
@@ -214,7 +215,7 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When comparing the protein (PDV) of a recipe to its average rating (rounded to the nearest integer) in a scatter plot, there is an overall upward trend. Similarly to the previous graph, there are many outliers, especially in the average rating 5 category. Furthermore, the relatinship appears a bit non-linear, however, again, that is influenced by the outliers.
 
 <iframe
   src="assets/avg_vs_sat_fat_scatter.html"
@@ -222,7 +223,7 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When comparing the saturated fat (PDV) of a recipe to its average rating (rounded to the nearest integer) in a scatter plot, there is an overall slight upward trend. Similarly to the previous graphs, there are a few outliers. Furthermore, the relatinship appears a bit non-linear, however, again, that is influenced by the outliers.
 
 <iframe
   src="assets/avg_vs_carb_scatter.html"
@@ -230,10 +231,12 @@ todo
   height="600"
   frameborder="0"
 ></iframe>
-todo
+When comparing the carbohydrates (PDV) of a recipe to its average rating (rounded to the nearest integer) in a scatter plot, there is an overall upward trend. Similarly to the previous graph, there are a few outliers, most notably in the average rating 3 and 5 categories.
 
 
 ### Interesting Aggregates
+
+For this section, I wanted to explore the relationship of the proportions of each rating that were given out each year. I was curious as to if there were any trends over time.
 
 |   recipe_submitted_year |   1.0 |   2.0 |   3.0 |   4.0 |   5.0 |
 |------------------------:|------:|------:|------:|------:|------:|
@@ -249,7 +252,7 @@ todo
 |                    2017 |    21 |     6 |    13 |    56 |   247 |
 |                    2018 |    12 |     5 |     7 |    32 |   160 |
 
-todo
+The pivot table above shows a joint distribution of ratings vs year, but as all the values are counts currently, it can be a bit difficult to get a comprehensive sense of the proportions at first glance.
 
 |   recipe_submitted_year |   1.0 |   2.0 |   3.0 |   4.0 |   5.0 |
 |------------------------:|------:|------:|------:|------:|------:|
@@ -265,7 +268,9 @@ todo
 |                    2017 |  0.06 |  0.02 |  0.04 |  0.16 |  0.72 |
 |                    2018 |  0.06 |  0.02 |  0.03 |  0.15 |  0.74 |
 
-todo
+To address this, I converted the pivot table to show the conditional probabilities of ratings given year (rounded to two decimal places) by dividing the initial table by the sum of itself along axis 1.
+
+Now, we can easily see that as time has progressed, the proportion of lower ratings has slightly and slowly increased, while the proportion of higher scores has slightly and slowly decreased. Although I cannot be entirely sure of the exact cause, potential reasons for this may be related to the internet becoming exponentially larger and having exponentially more resources and recipe options over the course of the decade in question.
 
 ## Assessment of Missingness
 
