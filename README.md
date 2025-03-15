@@ -249,6 +249,8 @@ todo
 |                    2017 |    21 |     6 |    13 |    56 |   247 |
 |                    2018 |    12 |     5 |     7 |    32 |   160 |
 
+todo
+
 |   recipe_submitted_year |   1.0 |   2.0 |   3.0 |   4.0 |   5.0 |
 |------------------------:|------:|------:|------:|------:|------:|
 |                    2008 |  0.01 |  0.01 |  0.03 |  0.19 |  0.76 |
@@ -267,15 +269,15 @@ todo
 
 ## Assessment of Missingness
 
-todo
+There are several columns that contain non-trivial missingness in the merged dataframe. These columns include, but are not limited to, `'rating'` and `'description'`.
 
 ### NMAR Analysis
 
-todo
+I believe that the missingness of the `'description'` column is NMAR. This is because some users may forgo uploading descriptions for their recipes if the recipe names are explanatory enough and/or if the descriptions would be very generic (e.g. name: Orange Juice, description: juicing an orange). Many users may only be compelled to write a description for their recipes if, for example, the recipe is for an ethnic dish that is not very well known to the website's primary audience (e.g. Western people with acceess to the internet), or has a sentimental story attached of how it was passed down for generations in their family.
 
 ### Missingness Dependency
 
-todo
+However, as there are significantly more instances of missingness in the `'rating'` feature, I decided to analyze the missingness of this column in the merged DataFrame. To do this, I will be investigating its missingness and its dependence on the `'minutes'` and ____ columns.
 
 **Null Hypothesis:** todo
 **Alternate Hypothesis:** todo
