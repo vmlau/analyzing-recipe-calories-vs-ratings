@@ -365,11 +365,47 @@ At the time of prediction, we would have all the information from the features i
 
 ## Baseline Model
 
-todo
+For my baseline model, I've decided to use a random forest classifier and split my data into both training and test sets. The features I decided to use for this model are `'minutes'` (quantitative), each of the individual nutritional columns (quantitative), `'recipe_submitted_year'` (quantitative), and `'avg_rating'` (rounded to the nearest integer; ordinal; the response variable).
+
+For my transformations, during preprocessing, I applied sklearn's PolynomialFeatures with arguments degree = 2 and include_bias = True to the following features: ['total fat (PDV)', 'sugar (PDV)', 'saturated fat (PDV)', 'carbohydrates (PDV)']. Additionally I applied a RobustScaler to all of the nutritional-related features, as, during my exploratory data analysis in step 2, I saw that these features had many outliers.
+
+This baseline model received a macro f1 score of 0.28 and a weighted f1 score of 0.60. The individual f1 scores for each average rating category are as such in ascending order of rating: 0.03, 0.08, 0.18, 0.44, and 0.66. Although this model performs better in terms of the macro f1 score than simply predicting every recipe to have an average rating of 5 (macro f1 = 0.17, weighted f1 = 0.63), I still don't think it is quite "good" yet. This is because for every average rating category aside from 5, this baseline model's f1 score for the individual category cannot even predict them right a majority of the time. As of now, this baseline model predicts better when the true average rating of a recipe should be 4 or 5, likely due to the overrepresentation of these clases in the original dataset and subsequently the training data.
 
 ## Final Model
 
-todo
+For my final model, I used the following as my features:
+
+`'minutes'`
+This column is the cooking time of the recipe in minutes. I chose to include this feature in my final model due to the fact that if a recipe takes an excessive amount of time to make, there may a correlation to the skill level required (e.g. Japanese Souffle Cheesecake), which may result in a higher chance of users giving it a lower rating due to the difficulty of the recipe affecting its results. Additionally, if a recipe takes excessively long for mediocre results, it can further affect whether a user gives a lower rating.
+
+`'calories (#)'`
+This column contains the total calories of a recipe. When looking at the bivariate table between this features and average ratings during the exploratory data analysis, we saw that there was an upward trend between the two in the scatter plot due to the outliers. Additionally, in the box plot comparing ratings and calories, as ratings increased, the median amount of calories decreased. To transform this feature, I applied both PolynomialFeatures(degree = 2, include_bias=True) and a RobustScaler(). I used the RobustScaler rather than the StandardizedScaler because the RobustScaler handles the outliers more effectively and better minimizes their effects.
+
+`'total fat (PDV)'`
+This column contains the total fat of a recipe in terms of PDV. When looking at the bivariate table between this features and average ratings during the exploratory data analysis, we saw that there was an upward trend between the two in the scatter plot due to the outliers. To transform this feature, I applied both PolynomialFeatures(degree = 2, include_bias=True) and a RobustScaler(). For the PolynomialFeatures, I set include_bias to True because it was the outliers that made the correlation non-linear, and then I used the RobustScaler rather than the StandardizedScaler because the RobustScaler handles the outliers more effectively and better minimizes their effects.
+
+`'sugar (PDV)'`
+This column contains the total fat of a recipe in terms of PDV. When looking at the bivariate table between this features and average ratings during the exploratory data analysis, we saw that there was an upward trend between the two in the scatter plot due to the outliers. To transform this feature, I applied both PolynomialFeatures(degree = 2, include_bias=True) and a RobustScaler(). For the PolynomialFeatures, I set include_bias to True because it was the outliers that made the correlation non-linear, and then I used the RobustScaler rather than the StandardizedScaler because the RobustScaler handles the outliers more effectively and better minimizes their effects.
+
+`'sodium (PDV)'`
+This column contains the total fat of a recipe in terms of PDV. When looking at the bivariate table between this features and average ratings during the exploratory data analysis, we saw that there was an upward trend between the two in the scatter plot due to the outliers. I used the RobustScaler rather than the StandardizedScaler because the RobustScaler handles the outliers more effectively and better minimizes their effects.
+
+`'protein (PDV)'`
+This column contains the total fat of a recipe in terms of PDV. When looking at the bivariate table between this features and average ratings during the exploratory data analysis, we saw that there was an upward trend between the two in the scatter plot due to the outliers. I used the RobustScaler rather than the StandardizedScaler because the RobustScaler handles the outliers more effectively and better minimizes their effects.
+
+`'saturated fat (PDV)'`
+This column contains the total fat of a recipe in terms of PDV. When looking at the bivariate table between this features and average ratings during the exploratory data analysis, we saw that there was an upward trend between the two in the scatter plot due to the outliers. To transform this feature, I applied both PolynomialFeatures(degree = 2, include_bias=True) and a RobustScaler(). For the PolynomialFeatures, I set include_bias to True because it was the outliers that made the correlation non-linear, and then I used the RobustScaler rather than the StandardizedScaler because the RobustScaler handles the outliers more effectively and better minimizes their effects.
+
+`'carbohydrates (PDV)'`
+This column contains the total fat of a recipe in terms of PDV. When looking at the bivariate table between this features and average ratings during the exploratory data analysis, we saw that there was an upward trend between the two in the scatter plot due to the outliers. To transform this feature, I applied both PolynomialFeatures(degree = 2, include_bias=True) and a RobustScaler(). For the PolynomialFeatures, I set include_bias to True because it was the outliers that made the correlation non-linear, and then I used the RobustScaler rather than the StandardizedScaler because the RobustScaler handles the outliers more effectively and better minimizes their effects.
+
+`'ingredients'`
+This column contains the ingredients of a recipe as a list of strings. I chose this to add to my final model because certain ingredients can be more likely to be associated with higher or lower ratings (e.g. chocolate vs vegemite). By applying tfidf to this feature, I can assign importance to each ingredient in a given recipe as associated with their commonality overall. Furthermore, if a recipe uses appealing or trendy ingredients, they may be more highly rated by users.
+
+`'tags'`
+This column contains the tags of a recipe as a list of strings. I chose this to add to my final model because certain tags can be more likely to be associated with specific audiences (e.g. halal, vegetarian, etc.). By applying tfidf to this feature, I can assign importance to each tag in a given recipe as associated with their commonality overall in addition to user preferences (e.g. easy). Furthermore, if a recipe uses appealing or trendy tags, they may be more highly rated by users.
+
+Again, similarly to my base model, I used a RandomForestClassifier as my modeling algorithm
 
 ## Fairness Analysis
 
