@@ -142,13 +142,126 @@ THe cleaned dataframe ended up with 234429 rows and 26 columns. Here are the fir
 
 ### Univariate Analysis
 
+<iframe
+  src="assets/rating_bar.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+todo
+
+<iframe
+  src="assets/calories_box.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 todo
 
 ### Bivariate Analysis
 
+<iframe
+  src="assets/calories_vs_year_box.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 todo
 
+<iframe
+  src="assets/ratings_vs_calories_box.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+todo
+
+<iframe
+  src="assets/avg_vs_calories.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+todo
+
+<iframe
+  src="assets/avg_vs_total_fat_scatter.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+todo
+
+<iframe
+  src="assets/avg_vs_sugar_scatter.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+todo
+
+<iframe
+  src="assets/avg_vs_sodium_scatter.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+todo
+
+<iframe
+  src="assets/avg_vs_protein_scatter.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+todo
+
+<iframe
+  src="assets/avg_vs_sat_fat_scatter.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+todo
+
+<iframe
+  src="assets/avg_vs_carb_scatter.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+todo
+
+
 ### Interesting Aggregates
+
+|   recipe_submitted_year |   1.0 |   2.0 |   3.0 |   4.0 |   5.0 |
+|------------------------:|------:|------:|------:|------:|------:|
+|                    2008 |  1110 |  1031 |  3202 | 17112 | 69248 |
+|                    2009 |   707 |   657 |  2015 | 10037 | 45735 |
+|                    2010 |   340 |   279 |   849 |  4518 | 21959 |
+|                    2011 |   211 |   157 |   438 |  2517 | 12771 |
+|                    2012 |   204 |   103 |   300 |  1547 |  9616 |
+|                    2013 |   166 |    92 |   275 |  1200 |  7355 |
+|                    2014 |    62 |    28 |    49 |   213 |  1923 |
+|                    2015 |    21 |     5 |    14 |    45 |   461 |
+|                    2016 |    16 |     5 |    10 |    30 |   201 |
+|                    2017 |    21 |     6 |    13 |    56 |   247 |
+|                    2018 |    12 |     5 |     7 |    32 |   160 |
+
+|   recipe_submitted_year |   1.0 |   2.0 |   3.0 |   4.0 |   5.0 |
+|------------------------:|------:|------:|------:|------:|------:|
+|                    2008 |  0.01 |  0.01 |  0.03 |  0.19 |  0.76 |
+|                    2009 |  0.01 |  0.01 |  0.03 |  0.17 |  0.77 |
+|                    2010 |  0.01 |  0.01 |  0.03 |  0.16 |  0.79 |
+|                    2011 |  0.01 |  0.01 |  0.03 |  0.16 |  0.79 |
+|                    2012 |  0.02 |  0.01 |  0.03 |  0.13 |  0.82 |
+|                    2013 |  0.02 |  0.01 |  0.03 |  0.13 |  0.81 |
+|                    2014 |  0.03 |  0.01 |  0.02 |  0.09 |  0.85 |
+|                    2015 |  0.04 |  0.01 |  0.03 |  0.08 |  0.84 |
+|                    2016 |  0.06 |  0.02 |  0.04 |  0.11 |  0.77 |
+|                    2017 |  0.06 |  0.02 |  0.04 |  0.16 |  0.72 |
+|                    2018 |  0.06 |  0.02 |  0.03 |  0.15 |  0.74 |
 
 todo
 
