@@ -277,26 +277,49 @@ I believe that the missingness of the `'description'` column is NMAR. This is be
 
 ### Missingness Dependency
 
-However, as there are significantly more instances of missingness in the `'rating'` feature, I decided to analyze the missingness of this column in the merged DataFrame. To do this, I will be investigating its missingness and its dependence on the `'minutes'` and ____ columns.
+However, as there are significantly more instances of missingness in the `'rating'` feature, I decided to analyze the missingness of this column in the merged DataFrame. To do this, I will be investigating its missingness and its dependence on the `'minutes'` and `'recipe_submitted_year'` columns, starting with the former.
 
-**Null Hypothesis:** todo
-**Alternate Hypothesis:** todo
+#### Minutes and Rating
 
-**Test Statistic:** todo
+**Null Hypothesis:** The missingness of ratings does not depend on the recipe's cooking time (minutes).
 
-**Significance Level:** 0.05
+**Alternate Hypothesis:** The missingness of ratings does depend on the recipe's cooking time (minutes).
 
-
-
-**Null Hypothesis:** todo
-
-**Alternate Hypothesis:** todo
-
-**Test Statistic:** todo
+**Test Statistic:** The absolute mean difference of the distribution of the group without missing ratings' cooking time and the distribution of the group with missing ratings' cooking time.
 
 **Significance Level:** 0.05
 
-conclusion
+To test this set of hypotheses, I ran a permutation test by shuffling the missingness labels of rating 1000 times to create 1000 simulations of absolute mean differences in the two distributions.
+
+<iframe
+  src="assets/minutes_missingness.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The **observed statistic** of **51.4523** is indicated by the red vertical line on the graph. Since the **p_value** that we found **(0.103)** is greater than the significance level of 0.05, we **fail reject the null hypothesis**. The missingness of `'rating'` does not depend on the cooking time of the recipe (`'minutes'`).
+
+#### Recipe Submitted Year and Rating
+
+**Null Hypothesis:** The missingness of ratings does not depend on the year the recipe was submitted.
+
+**Alternate Hypothesis:** The missingness of ratings does depend on the year the recipe was submitted.
+
+**Test Statistic:** The absolute mean difference of the distribution of the group without missing ratings' recipe upload year and the distribution of the group with missing ratings' recipe upload year.
+
+**Significance Level:** 0.05
+
+To test this set of hypotheses, I ran a permutation test by shuffling the missingness labels of rating 1000 times to create 1000 simulations of absolute mean differences in the two distributions.
+
+<iframe
+  src="assets/year_missingness.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The **observed statistic** of **0.2963** is indicated by the red vertical line on the graph. Since the **p_value** that we found **(0.0)** is less than the significance level of 0.05, we **reject the null hypothesis**. The missingness of `'rating'` does depend on the year the recipe was uploaded.
 
 ## Hypothesis Testing
 
