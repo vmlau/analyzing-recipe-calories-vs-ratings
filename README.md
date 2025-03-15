@@ -337,11 +337,16 @@ To explore this, I ran a permutation test with the following null and alternativ
 
 My choices of test, hypotheses, and test statistic were good choices for several reasons. Firstly, I don't have any information on the underlying population, and I want to see if the different caloric distributions of the difference ratings came from the same population. I decided to do two-sided hypotheses due to the fact that if a certain recipe is too low in calories (e.g. salad with no dressing) or too high in calories (e.g. cupcake with too much sugar), either could affect the rating. Finally, the choice of a K-S test statistic worked best for my test because the K-S statistic is designed for continuous distributions like that of calories, and it can be compared across the 5 different classes of ratings.
 
-todo
+<iframe
+  src="assets/step_four_emp_dist.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 #### Conclusion of Permutation Test
 
-todo
+Since the **p_value** that we found **(0.0)** is less than the significance level of 0.05, we **reject the null hypothesis**. A recipe's amount of calories does have an affect on its rating. One plausible explanation could be the one I provided above regarding insufficient or excessive amounts of sauce.
 
 ## Framing a Prediction Problem
 
