@@ -350,7 +350,13 @@ Since the **p_value** that we found **(0.0)** is less than the significance leve
 
 ## Framing a Prediction Problem
 
-todo
+For my prediction problem, I've decided to use some of the features in the merged recipes and interactions dataframe to try and predict the average rating of a given recipe. Although the average ratings of each recipe end up being decimals as a result of finding the average of all the individual ratings, reviewers seem to be given the choice to rate a recipe on an integer scale from 1 to 5. Thus, by limiting a recipe's average rating to being an integer by rounding it, we can make this a multiclass classification problem. 
+
+The response variable would be the average rating of a recipe. I chose this because, not only is it the theme of the entire project, but the exploratory data analysis done between this variable and other features such as calories, total fat, sugar, etc., suggests that there is a correlation between rating and each of these features individually. Additionally the average rating of a recipe gives a good sense of people's general thoughts of it overall.
+
+To evaluate my model, I will be using an f1 score instead of accuracy due to the fact that the a majority of the ratings in the dataset are either 4 or 5. Since accuracy can be more easily swayed due to the imbalanced proportions of classes, it would be better to use f1 scoring because it has the option to use either macro f1 (checks if the model performs well on all classes regardless of size) or weighted f1 (checks how the model performs on the real-world distribution of classes).
+
+At the time of prediction, we would have all the information from the features in the recipes dataset. These are features related to the year the recipe was uploaded, its nutritional facts, its tags and ingredients, etc. This would not include the features in the interactions dataset, as if we had that information, we could simply calculate the average rating of each recipe.
 
 ## Baseline Model
 
