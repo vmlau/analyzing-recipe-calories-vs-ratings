@@ -405,7 +405,9 @@ This column contains the ingredients of a recipe as a list of strings. I chose t
 `'tags'`
 This column contains the tags of a recipe as a list of strings. I chose this to add to my final model because certain tags can be more likely to be associated with specific audiences (e.g. halal, vegetarian, etc.). By applying tfidf to this feature, I can assign importance to each tag in a given recipe as associated with their commonality overall in addition to user preferences (e.g. easy). Furthermore, if a recipe uses appealing or trendy tags, they may be more highly rated by users.
 
-Again, similarly to my base model, I used a RandomForestClassifier as my modeling algorithm
+Again, similarly to my base model, I used a RandomForestClassifier as my modeling algorithm. Although I initially wanted to use GridSearchCV to tune my hyperparameter of max_depth for the RandomForestClassifier, ultimately, due to device constraints and issues, I had to due a very limited RandomizedSearchCV. When passed the max_depth options of 2, 12, and 22, this RandomizedSearchCV determined 12 to be the best max_depth value. I needed to perform a search for this hyperparameter due to the fact that Decision trees are prone to having high variance and can have some overfitting, but by using the hyperparameter of max_depth, I can help control the variance and reduce the model's overfitting. 
+
+When I run my RandomForestClassifier with max_depth set to 12, my model has a macro f1 score of 0.35 and a weighted f1 score of 0.74. Compared to my baseline model, these are improvements of 0.07 and 0.14 respectively. Additionally, the f1 score for each of the average rating categories are as follows in ascending order of average rating: 0.05, 0.17, 0.18, 0.54, and 0.82. This final model is a marked improvement across the board in comparison to the original baseline model, and I believe it is decent as it outperforms simply assigning every recipe an average rating of 5 (macro f1 = 0.17, weighted f1 = 0.63). 
 
 ## Fairness Analysis
 
