@@ -411,13 +411,16 @@ When I run my RandomForestClassifier with max_depth set to 12, my model has a ma
 
 ## Fairness Analysis
 
-todo
-**Null Hypothesis**: todo
+**Null Hypothesis**: My model is fair. Its precision for recipes with higher calories and lower calories are roughly the same. Any differences are due to random chance.
 
-**Alternative Hypothesis**: todo
+**Alternative Hypothesis**: My model is unfair. Its precision for recipes with lower calories is different than its precision for recipes with higher calories.
 
-**Test Statistic**: todo
+**Test Statistic**: Absolute Difference in macro f1 scores
 
 **Significance Level**: 0.05
 
-todo
+**P-Value**: 0.0
+
+**Observed Statistic**: 0.05
+
+For my permutation test, I created a new column that separated the data into two groups: lower or higher calorie. The dividing boundary was 300 calories due to the fact that that was the roughly the median when I sorted the all the data into calorie classes (0-300, 300-600, etc.) and plotted the counts of each class on a bar graph. From here, I calculated the observed absolute difference in macro f1 scores between the discrepancies of the lower and higher calories from my test and predictive ratings before performing the permutation test, in which I shuffled the higher and lower labels, and recalculated the test statistic for 1000 permutations. Then after calculating the p-value of 0.0, I concluded that as the p-value is less than the significance level of 0.05, I reject the null hyothesis that the model is fair. The model's precision for recipes with lower calories is different than its precision for recipes with higher calories.
